@@ -1,6 +1,6 @@
 <template>
-    <h2>Home</h2>
-    <p>Home page goes here</p>
+    <h2>Settings</h2>
+    <p>Settings page goes here</p>
     <Nav />
 </template>
 
