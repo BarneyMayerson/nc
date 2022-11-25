@@ -1,9 +1,10 @@
 <template>
+  <AppLayout>
     <h2>Settings</h2>
     <p>Settings page goes here</p>
-    <Nav />
+  </AppLayout>
 </template>
 
 <script setup>
-import Nav from "../Shared/Nav.vue";
+import AppLayout from "@/components/layouts/AppLayout.vue";
 </script>

@@ -1,9 +1,10 @@
 <template>
-  <h2>Home</h2>
-  <p>Home page goes here UPD</p>
-  <Nav />
+  <AppLayout>
+    <h2>Home</h2>
+    <p>Home page goes here UPD</p>
+  </AppLayout>
 </template>
 
 <script setup>
-import Nav from "../Shared/Nav.vue";
+import AppLayout from "@/components/layouts/AppLayout.vue";
 </script>
