@@ -8,7 +8,7 @@
         <div class="flex items-center">
           <Nav />
           <button
-            @click="toggleDark"
+            @click="toggleDark()"
             class="ml-4"
             type="button"
             aria-haspopup="true"
@@ -68,11 +68,10 @@
 
 <script setup>
 import { ref } from "vue";
+import { useDark, useToggle } from "@vueuse/core";
+
 import Nav from "@/components/navigations/Nav.vue";
 
-const isDark = ref(false);
-
-const toggleDark = () => {
-  isDark.value = !isDark.value;
-};
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 </script>
