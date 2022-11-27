@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
+Route::post('register', [RegisterController::class, 'store'])->name('register');
 
 Route::get('/', function () {
     sleep(2);
