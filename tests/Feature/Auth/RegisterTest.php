@@ -4,13 +4,23 @@ namespace Tests\Feature\Auth;
 
 use App\Models\User;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Inertia\Testing\AssertableInertia as Assert;
 
 class RegisterTest extends TestCase
 {
     use RefreshDatabase;
     
+    /** @test */
+    function it_returns_related_inertia_component()
+    {
+        $response = $this->get('/register');
+
+        $response->assertInertia(fn (Assert $page) => $page
+            ->component('Auth/Register')
+        );
+    }
+
     /** @test */
     function guest_can_register_an_account()
     {
@@ -19,6 +29,7 @@ class RegisterTest extends TestCase
             'name' => 'newbie',
             'email' => 'newbie@nc.lan',
             'password' => 'password',
+            'password_confirmation' => 'password',
         ];
 
         $response = $this->post('/register', $attributes);
@@ -36,6 +47,7 @@ class RegisterTest extends TestCase
             'name' => 'newbie',
             'email' => 'newbie@nc.lan',
             'password' => 'password',
+            'password_confirmation' => 'password'
         ];
 
         $response = $this->post('/register', $attributes);
@@ -50,6 +62,7 @@ class RegisterTest extends TestCase
         $attributes = [
             'email' => 'newbie@nc.lan',
             'password' => 'password',
+            'password_confirmation' => 'password'
         ];
 
         $response = $this->post('/register', $attributes);
@@ -65,6 +78,7 @@ class RegisterTest extends TestCase
             'name' => 'aw',
             'email' => 'newbie@nc.lan',
             'password' => 'password',
+            'password_confirmation' => 'password'
         ];
 
         $response = $this->post('/register', $attributes);
@@ -80,6 +94,7 @@ class RegisterTest extends TestCase
             'name' => 'VeryLongName goes here!', // length = 23
             'email' => 'newbie@nc.lan',
             'password' => 'password',
+            'password_confirmation' => 'password'
         ];
 
         $response = $this->post('/register', $attributes);
@@ -101,6 +116,8 @@ class RegisterTest extends TestCase
             'name' => 'SameName',
             'email' => 'newbie@nc.lan',
             'password' => 'password',
+            'password_confirmation' => 'password'
+
         ];
 
         $response = $this->post('/register', $attributes);
@@ -116,6 +133,8 @@ class RegisterTest extends TestCase
         $attributes = [
             'name' => 'newbie',
             'password' => 'password',
+            'password_confirmation' => 'password'
+
         ];
 
         $response = $this->post('/register', $attributes);
@@ -131,6 +150,8 @@ class RegisterTest extends TestCase
             'name' => 'newbie',
             'email' => 'newbie@nc',
             'password' => 'password',
+            'password_confirmation' => 'password'
+
         ];
 
         $response = $this->post('/register', $attributes);
@@ -152,6 +173,8 @@ class RegisterTest extends TestCase
             'name' => 'Johnny',
             'email' => 'test@nc.lan',
             'password' => 'password',
+            'password_confirmation' => 'password'
+
         ];
 
         $response = $this->post('/register', $attributes);
@@ -182,6 +205,8 @@ class RegisterTest extends TestCase
             'name' => 'newbie',
             'email' => 'newbie@nc.lan',
             'password' => 'passw',
+            'password_confirmation' => 'passw'
+
         ];
 
         $response = $this->post('/register', $attributes);
@@ -197,6 +222,24 @@ class RegisterTest extends TestCase
             'name' => 'newbie',
             'email' => 'newbie@nc.lan',
             'password' => 'pass word',
+            'password_confirmation' => 'pass word'
+
+        ];
+
+        $response = $this->post('/register', $attributes);
+
+        $response->assertSessionHasErrors('password');
+        $this->assertDatabaseEmpty('users');
+    }
+
+    /** @test */
+    function password_must_be_confirmed()
+    {
+        $attributes = [
+            'name' => 'newbie',
+            'email' => 'newbie@nc.lan',
+            'password' => 'password',
+            'password_confirmation' => null,
         ];
 
         $response = $this->post('/register', $attributes);
