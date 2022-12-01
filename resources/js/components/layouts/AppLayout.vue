@@ -10,13 +10,13 @@
         </div>
       </header>
     </section>
-  </div>
 
-  <section class="p-6">
-    <main class="max-w-5xl mx-auto">
-      <slot />
-    </main>
-  </section>
+    <section class="p-6">
+      <main class="max-w-5xl mx-auto">
+        <slot />
+      </main>
+    </section>
+  </div>
 </template>
 
 <script setup>

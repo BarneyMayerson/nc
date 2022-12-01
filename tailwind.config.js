@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const theme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./resources/**/*.blade.php",
@@ -7,7 +9,12 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: (theme) => ({
+        "nfsu-dark": "url('/storage/images/map-dark.webp')",
+        "nfsu-light": "url('/storage/images/map-light.jpg')",
+      }),
+    },
   },
   plugins: [],
 };
