@@ -3,10 +3,9 @@ import { mount } from "@vue/test-utils";
 import Logo from "@/components/Logo.vue";
 
 describe("Logo.vue", () => {
-  it("displays project name", () => {
+  it("displays logo", () => {
     const wrapper = mount(Logo);
 
-    expect(wrapper.find("#logo-name").text()).toBe("NFSU Cup");
-    expect(wrapper.classes("text-blue-600")).toBe(true);
+    expect(wrapper.find("#logo").exists()).toBe(true);
   });
 });

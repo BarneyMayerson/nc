@@ -4,7 +4,7 @@
       class="p-6 bg-slate-100 dark:bg-slate-800 dark:text-white transition-colors duration-1000"
     >
       <header class="flex items-center justify-between">
-        <h2 class="text-2xl font-medium">NFSU Cup</h2>
+        <Logo />
         <div class="flex items-center">
           <Nav />
         </div>
@@ -20,5 +20,6 @@
 </template>
 
 <script setup>
+import Logo from "@/components/Logo.vue";
 import Nav from "@/components/navigations/Nav.vue";
 </script>
