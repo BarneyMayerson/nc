@@ -5,6 +5,7 @@ import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { createInertiaApp } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
 import AppLayout from "@/components/layouts/AppLayout.vue";
+import General from "@/components/layouts/General.vue";
 
 InertiaProgress.init({
   showSpinner: true,
