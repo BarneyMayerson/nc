@@ -4,7 +4,7 @@
       class="p-6 bg-slate-100 dark:bg-slate-800 dark:text-white transition-colors duration-1000"
     >
       <header class="flex items-center justify-between">
-        <Logo />
+        <Logo class="w-28 h-16" />
         <div class="flex items-center">
           <Nav />
         </div>
