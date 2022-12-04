@@ -11,15 +11,14 @@
       </header>
     </section>
 
-    <section class="p-6">
-      <main class="max-w-5xl mx-auto">
-        <slot />
-      </main>
-    </section>
+    <Container>
+      <slot />
+    </Container>
   </div>
 </template>
 
 <script setup>
 import Logo from "@/components/Logo.vue";
 import Nav from "@/components/navigations/Nav.vue";
+import Container from "@/components/shared/Container.vue";
 </script>
