@@ -18,7 +18,7 @@
             <NavMenuItem href="#">Game Server</NavMenuItem>
           </div>
         </div>
-        <div class="hidden sm:ml-6 sm:flex sm:items-center">
+        <div class="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-3">
           <button
             type="button"
             class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -28,7 +28,7 @@
           </button>
 
           <!-- Profile dropdown -->
-          <Menu as="div" class="relative ml-3">
+          <Menu as="div" class="relative">
             <div>
               <MenuButton
                 class="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -70,6 +70,7 @@
               </MenuItems>
             </transition>
           </Menu>
+          <ToggleMode />
         </div>
         <div class="-mr-2 flex items-center sm:hidden">
           <!-- Mobile menu button -->
@@ -171,4 +172,5 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
 import Logo from "@/components/Logo.vue";
 import NavMenuItem from "@/components/navigations/NavMenuItem.vue";
 import DropdownMenuItem from "@/components/navigations/DropdownMenuItem.vue";
+import ToggleMode from "@/components/shared/ToggleMode.vue";
 </script>
