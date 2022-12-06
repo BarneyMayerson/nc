@@ -10,5 +10,5 @@
 
 <script setup>
 import { Link } from "@inertiajs/inertia-vue3";
-import ToggleMode from "../shared/ToggleMode.vue";
+import ToggleMode from "@/components/shared/ToggleMode.vue";
 </script>

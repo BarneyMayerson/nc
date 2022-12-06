@@ -1,15 +1,15 @@
 <template>
   <div>
+    <TopNav />
     <section
-      class="p-6 bg-slate-100 dark:bg-slate-800 dark:text-white transition-colors duration-1000"
+      class="mt-48 p-6 bg-slate-100 dark:bg-slate-800 dark:text-white transition-colors duration-1000"
     >
-      <TopNav />
-      <!-- <header class="flex items-center justify-between">
+      <header class="flex items-center justify-between">
         <Logo class="w-28 h-16" />
         <div class="flex items-center">
           <Nav />
         </div>
-      </header> -->
+      </header>
     </section>
 
     <Container>
