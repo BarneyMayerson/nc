@@ -75,7 +75,7 @@
         <div class="-mr-2 flex items-center sm:hidden">
           <!-- Mobile menu button -->
           <DisclosureButton
-            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 dark:text-sky-500 hover:bg-gray-100 dark:hover:bg-sky-900 hover:text-gray-500 dark:hover:text-sky-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-700"
           >
             <span class="sr-only">Open main menu</span>
             <Bars3Icon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
@@ -122,9 +122,9 @@
           <MobileMenuItem>Settings</MobileMenuItem>
           <MobileMenuItem>Sign out</MobileMenuItem>
           <div
-            class="flex items-center justify-between bg-gray-100 dark:bg-sky-800 rounded-md mx-2 px-2 py-3"
+            class="flex items-center justify-between bg-gray-100 dark:bg-sky-900 rounded-md mx-2 px-2 py-3"
           >
-            <p class="text-gray-900 dark:text-sky-500">Apperance</p>
+            <p class="font-medium text-gray-900 dark:text-sky-400">Apperance</p>
             <ToggleMode />
           </div>
         </div>
