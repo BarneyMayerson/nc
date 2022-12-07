@@ -1,7 +1,7 @@
 <template>
   <Disclosure
     as="nav"
-    class="bg-white dark:bg-nfsu-bg shadow"
+    class="bg-white dark:bg-sky-900 shadow"
     v-slot="{ open }"
   >
     <div class="mx-auto px-6 sm:px-8 lg:px-10">
@@ -50,7 +50,7 @@
               leave-to-class="transform opacity-0 scale-95"
             >
               <MenuItems
-                class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white dark:bg-nfsu-bg py-1 ring-1 ring-gray-200 dark:ring-gray-800 focus:outline-none"
+                class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white dark:bg-sky-700 py-1 ring-1 ring-gray-200 dark:ring-gray-800 focus:outline-none"
               >
                 <MenuItem v-slot="{ active }">
                   <DropdownMenuItem href="#" is-current>
