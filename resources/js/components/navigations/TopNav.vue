@@ -87,30 +87,10 @@
 
     <DisclosurePanel class="sm:hidden">
       <div class="space-y-1 pt-2 pb-3">
-        <DisclosureButton
-          as="a"
-          href="#"
-          class="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"
-          >Dashboard</DisclosureButton
-        >
-        <DisclosureButton
-          as="a"
-          href="#"
-          class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-          >Team</DisclosureButton
-        >
-        <DisclosureButton
-          as="a"
-          href="#"
-          class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-          >Projects</DisclosureButton
-        >
-        <DisclosureButton
-          as="a"
-          href="#"
-          class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-          >Calendar</DisclosureButton
-        >
+        <MobileMenuItem>Dashboard</MobileMenuItem>
+        <MobileMenuItem is-current>Team</MobileMenuItem>
+        <MobileMenuItem>Projects</MobileMenuItem>
+        <MobileMenuItem>Calendar</MobileMenuItem>
       </div>
       <div class="border-t border-gray-200 pt-4 pb-3">
         <div class="flex items-center px-4">
@@ -122,8 +102,12 @@
             />
           </div>
           <div class="ml-3">
-            <div class="text-base font-medium text-gray-800">Tom Cook</div>
-            <div class="text-sm font-medium text-gray-500">tom@example.com</div>
+            <div class="text-base font-medium text-gray-800 dark:text-sky-500">
+              Tom Cook
+            </div>
+            <div class="text-sm font-medium text-gray-500 dark:text-sky-600">
+              tom@example.com
+            </div>
           </div>
           <button
             type="button"
@@ -134,24 +118,15 @@
           </button>
         </div>
         <div class="mt-3 space-y-1">
-          <DisclosureButton
-            as="a"
-            href="#"
-            class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-            >Your Profile</DisclosureButton
+          <MobileMenuItem>Your Profile</MobileMenuItem>
+          <MobileMenuItem>Settings</MobileMenuItem>
+          <MobileMenuItem>Sign out</MobileMenuItem>
+          <div
+            class="flex items-center justify-between bg-gray-100 dark:bg-sky-800 rounded-md mx-2 px-2 py-3"
           >
-          <DisclosureButton
-            as="a"
-            href="#"
-            class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-            >Settings</DisclosureButton
-          >
-          <DisclosureButton
-            as="a"
-            href="#"
-            class="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-            >Sign out</DisclosureButton
-          >
+            <p class="text-gray-900 dark:text-sky-500">Apperance</p>
+            <ToggleMode />
+          </div>
         </div>
       </div>
     </DisclosurePanel>
@@ -171,6 +146,7 @@ import {
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
 import Logo from "@/components/Logo.vue";
 import NavMenuItem from "@/components/navigations/NavMenuItem.vue";
+import MobileMenuItem from "@/components/navigations/MobileMenuItem.vue";
 import DropdownMenuItem from "@/components/navigations/DropdownMenuItem.vue";
 import ToggleMode from "@/components/shared/ToggleMode.vue";
 </script>
