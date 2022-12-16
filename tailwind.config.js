@@ -11,8 +11,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: (theme) => ({
-        "nfsu-dark": "url('/storage/images/map-dark.webp')",
-        "nfsu-light": "url('/storage/images/map-light.jpg')",
+        "nfsu-dark": "url('/storage/static/bg-dark.webp')",
+        "nfsu-light": "url('/storage/static/bg-light.jpg')",
       }),
     },
   },
