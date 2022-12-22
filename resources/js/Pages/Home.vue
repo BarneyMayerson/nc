@@ -7,26 +7,20 @@
     </div>
 
     <div class="mt-8">
-      <input id="standart" />
-    </div>
-
-    <div class="mt-8">
-      <BaseInput
-        id="testing"
+      <FloatLabelInput
+        id="first-name"
+        label="Float Label Input"
         type="text"
-        label="Base Input"
         v-model="firstName"
-        error="Nop enough"
       />
     </div>
-    <div class="mt-2">{{ firstName }}</div>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import PasswordInput from "@/components/shared/PasswordInput.vue";
-import BaseInput from "@/components/shared/BaseInput.vue";
+import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 
 const firstName = ref("");
 </script>

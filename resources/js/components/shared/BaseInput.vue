@@ -15,6 +15,7 @@
 </template>
 
 <script setup>
+// TODO: maybe reject this component and reset.css + form.css as well
 defineProps({
   id: {
     type: String,
