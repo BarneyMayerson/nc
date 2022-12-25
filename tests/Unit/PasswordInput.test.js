@@ -4,18 +4,24 @@ import PasswordInput from "@/components/shared/PasswordInput.vue";
 
 describe("PasswordInput.vue", () => {
   it("has default type as password", () => {
-    const wrapper = mount(PasswordInput);
+    const id = "password";
+    const wrapper = mount(PasswordInput, {
+      props: { id },
+    });
 
-    const input = wrapper.find("#input-password");
+    const input = wrapper.find("#password");
 
     expect(input.exists()).toBe(true);
     expect(input.attributes().type).toBe("password");
   });
 
   it("toggles the type by clicking the button", async () => {
-    const wrapper = mount(PasswordInput);
+    const id = "password";
+    const wrapper = mount(PasswordInput, {
+      props: { id },
+    });
 
-    const input = wrapper.find("#input-password");
+    const input = wrapper.find("#password");
     const toggleButton = wrapper.find("#toggle-visibility");
     await toggleButton.trigger("click");
 

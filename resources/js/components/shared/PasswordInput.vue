@@ -1,19 +1,39 @@
 <template>
   <div
-    class="w-full h-10 flex items-center justify-between border dark:bg-sky-900 border-gray-400 rounded"
+    class="relative rounded-md border px-3 py-2 shadow-sm focus-within:ring-2 bg-white dark:bg-sky-900"
+    :class="
+      error
+        ? 'border-red-300 focus-within:border-red-600 focus-within:ring-red-600'
+        : 'border-gray-400 focus-within:ring-indigo-600 dark:focus-within:ring-sky-300'
+    "
   >
     <input
-      id="input-password"
+      :id="id"
       :type="type"
-      class="flex-1 h-full rounded-sm outline-none dark:bg-sky-900 focus:ring-2 focus:ring-indigo-500 px-2 py-0.5"
+      class="block w-full bg-transparent peer pr-8"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+      placeholder=" "
     />
+    <label
+      :for="id"
+      class="absolute left-3 text-sm peer-focus:text-sm -top-2/3 peer-focus:-top-2/3 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2"
+      :class="
+        error
+          ? 'text-red-500 dark:text-red-400'
+          : 'text-gray-600 dark:text-gray-300 peer-focus:text-indigo-600 dark:peer-focus:text-sky-300'
+      "
+    >
+      {{ label }}
+    </label>
+
     <button
       @click="toggleType"
       id="toggle-visibility"
-      class="h-full border-l dark:bg-sky-900 outline-indigo-500 border-gray-400 px-2"
+      class="absolute right-1 top-0 h-full dark:bg-sky-900 px-2"
     >
       <svg
-        v-if="type === 'password'"
+        v-if="!isShowPassword"
         viewBox="0 0 20 20"
         fill="currentColor"
         class="w-5 h-5"
@@ -26,7 +46,7 @@
         />
       </svg>
       <svg
-        v-if="type === 'text'"
+        v-if="isShowPassword"
         viewBox="0 0 20 20"
         fill="currentColor"
         class="w-5 h-5"
@@ -42,13 +62,36 @@
       </svg>
     </button>
   </div>
+  <div v-if="error" class="text-sm text-red-600 font-medium mt-2 ml-3">
+    {{ error }}
+  </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+
+defineProps({
+  id: {
+    type: String,
+    required: true,
+  },
+  label: {
+    type: String,
+    required: true,
+  },
+  modelValue: {
+    type: String,
+    default: "password",
+  },
+  error: {
+    type: [String, Boolean],
+  },
+});
 
 const type = ref("password");
 
+const isShowPassword = computed(() => type.value === "text");
+
 const toggleType = () =>
-  (type.value = type.value === "password" ? "text" : "password");
+  (type.value = isShowPassword.value ? "password" : "text");
 </script>
