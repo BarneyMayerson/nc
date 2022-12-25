@@ -1,11 +1,12 @@
 <template>
   <div
     class="relative rounded-md border px-3 py-2 shadow-sm focus-within:ring-2 bg-white dark:bg-sky-900"
-    :class="
-      error
-        ? 'border-red-300 focus-within:border-red-600 focus-within:ring-red-600'
-        : 'border-gray-400 focus-within:ring-indigo-600 dark:focus-within:ring-sky-300'
-    "
+    :class="{
+      'border-red-300 focus-within:border-red-600 focus-within:ring-red-600':
+        error,
+      'border-gray-400 focus-within:ring-indigo-600 dark:focus-within:ring-sky-300':
+        !error,
+    }"
   >
     <input
       :id="id"
