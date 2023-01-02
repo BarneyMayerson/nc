@@ -33,3 +33,7 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+    - name: Install NPM Dependencies
+      run: npm install -D
+    - name: Execute tests (Unit and Feature tests) via Vitest
+      run: node_modules/.bin/vitest --run
