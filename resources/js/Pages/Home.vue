@@ -43,5 +43,6 @@ import FloatLabelTextarea from "@/components/shared/FloatLabelTextarea.vue";
 
 const firstName = ref("");
 const password = ref("");
+const country = ref("");
 const dummy = ref("");
 </script>

@@ -12,6 +12,9 @@
       :id="id"
       :value="modelValue"
       class="bg-transparent w-full peer"
+      :class="{
+        'text-gray-500 dark:text-gray-300': !modelValue,
+      }"
       v-bind="{
         ...$attrs,
         onChange: ($event) => {
@@ -19,7 +22,12 @@
         },
       }"
     >
-      <option class="text-gray-500 dark:text-sky-700" value="" disable selected>
+      <option
+        class="text-gray-500 dark:text-gray-300"
+        value=""
+        disable
+        selected
+      >
         {{ label }} ...
       </option>
       <option
@@ -33,9 +41,10 @@
     </select>
     <label
       :for="id"
-      class="absolute left-3 text-sm peer-focus:text-sm -top-2/3 peer-focus:-top-2/3 transition-all"
+      class="absolute left-3 peer-focus:text-sm peer-focus:-top-6 peer-focus:opacity-100 transition-all"
       :class="{
-        invisible: !modelValue,
+        'text-sm -top-6 opacity-100': modelValue,
+        'text-base top-2 opacity-0': !modelValue,
         'text-red-500 dark:text-red-400': error,
         'text-gray-600 dark:text-gray-300 peer-focus:text-indigo-600 dark:peer-focus:text-sky-300':
           !error,
@@ -50,7 +59,6 @@
 </template>
 
 <script setup>
-import { useAttrs } from "vue";
 defineProps({
   id: {
     type: String,
@@ -71,11 +79,6 @@ defineProps({
     type: [String, Boolean],
   },
 });
-
-const attrs = useAttrs();
-const addClasses = attrs.class;
-
-console.log(addClasses);
 </script>
 
 <style scoped>
