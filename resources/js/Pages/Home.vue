@@ -22,6 +22,15 @@
         :options="['France', 'Germany', 'Poland', 'USA']"
       />
     </div>
+
+    <div class="mt-8">
+      <FloatLabelTextarea
+        rows="10"
+        label="Dummy textarea"
+        id="dummy-text"
+        v-model="dummy"
+      />
+    </div>
   </div>
 </template>
 
@@ -30,6 +39,9 @@ import { ref } from "vue";
 import PasswordInput from "@/components/shared/PasswordInput.vue";
 import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import FloatSelect from "@/components/shared/FloatSelect.vue";
+import FloatLabelTextarea from "@/components/shared/FloatLabelTextarea.vue";
 
 const firstName = ref("");
 const password = ref("");
+const dummy = ref("");
+</script>

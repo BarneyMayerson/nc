@@ -8,14 +8,15 @@
         !error,
     }"
   >
-    <input
+    <textarea
       :id="id"
-      :type="type"
       class="block w-full bg-transparent peer"
-      :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
+      v-bind="{ ...$attrs, class: null }"
       placeholder=" "
-    />
+      >{{ modelValue }}</textarea
+    >
+
     <label
       :for="id"
       class="absolute left-3 text-sm peer-focus:text-sm -top-6 peer-focus:-top-6 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2"
@@ -39,16 +40,12 @@ defineProps({
     type: String,
     required: true,
   },
-  type: {
-    type: String,
-    default: "text",
-  },
   label: {
     type: String,
     required: true,
   },
   modelValue: {
-    type: [String, Number],
+    type: String,
     default: "",
   },
   error: {

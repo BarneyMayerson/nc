@@ -17,7 +17,7 @@
     />
     <label
       :for="id"
-      class="absolute left-3 text-sm peer-focus:text-sm -top-2/3 peer-focus:-top-2/3 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2"
+      class="absolute left-3 text-sm peer-focus:text-sm -top-6 peer-focus:-top-6 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2"
       :class="
         error
           ? 'text-red-500 dark:text-red-400'
