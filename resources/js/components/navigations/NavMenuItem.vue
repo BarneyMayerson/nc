@@ -1,5 +1,5 @@
 <template>
-  <a
+  <Link
     :href="href"
     class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
     :class="
@@ -9,10 +9,12 @@
     "
   >
     <slot />
-  </a>
+  </Link>
 </template>
 
 <script setup>
+import { Link } from "@inertiajs/inertia-vue3";
+
 defineProps({
   href: { type: String, required: true },
   isCurrent: { type: Boolean, default: false },

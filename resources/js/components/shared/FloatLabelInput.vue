@@ -1,35 +1,38 @@
 <template>
-  <div
-    class="relative rounded-md border px-3 py-2 shadow-sm focus-within:ring-2 bg-white dark:bg-sky-900"
-    :class="{
-      'border-red-300 focus-within:border-red-600 focus-within:ring-red-600':
-        error,
-      'border-gray-400 focus-within:ring-indigo-600 dark:focus-within:ring-sky-300':
-        !error,
-    }"
-  >
-    <input
-      :id="id"
-      :type="type"
-      class="block w-full bg-transparent peer"
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
-      placeholder=" "
-    />
-    <label
-      :for="id"
-      class="absolute left-3 text-sm peer-focus:text-sm -top-6 peer-focus:-top-6 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2"
-      :class="
-        error
-          ? 'text-red-500 dark:text-red-400'
-          : 'text-gray-600 dark:text-gray-300 peer-focus:text-indigo-600 dark:peer-focus:text-sky-300'
-      "
+  <div>
+    <div
+      class="relative rounded-md border bg-white px-3 py-2 shadow-sm focus-within:ring-2 dark:bg-sky-900"
+      :class="{
+        'border-red-300 focus-within:border-red-600 focus-within:ring-red-600':
+          error,
+        'border-gray-400 focus-within:ring-indigo-600 dark:focus-within:ring-sky-300':
+          !error,
+      }"
     >
-      {{ label }}
-    </label>
-  </div>
-  <div v-if="error" class="text-sm text-red-600 font-medium mt-2 ml-3">
-    {{ error }}
+      <input
+        :id="id"
+        :type="type"
+        class="peer block w-full bg-transparent"
+        v-bind="{ ...$attrs, class: null }"
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
+        placeholder=" "
+      />
+      <label
+        :for="id"
+        class="absolute left-3 -top-6 text-sm transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-focus:-top-6 peer-focus:text-sm"
+        :class="
+          error
+            ? 'text-red-500 dark:text-red-400'
+            : 'text-gray-600 peer-focus:text-indigo-600 dark:text-gray-300 dark:peer-focus:text-sky-300'
+        "
+      >
+        {{ label }}
+      </label>
+    </div>
+    <div class="mt-1 ml-3 text-sm font-light text-red-600">
+      {{ error }}
+    </div>
   </div>
 </template>
 

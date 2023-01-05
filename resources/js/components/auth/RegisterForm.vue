@@ -1,92 +1,52 @@
 <template>
-  <form @submit.prevent="submit" class="mt-4">
-    <div class="mb-6">
-      <label for="name" class="block font-bold text-xs text-gray-500 mb-2">
-        Name
-      </label>
-      <input
+  <form @submit.prevent="submit">
+    <div class="space-y-10">
+      <FloatLabelInput
         v-model="form.name"
-        class="border rounded-md px-2 py-1 w-full"
-        type="text"
-        name="name"
+        label="Name"
         id="name"
+        :error="form.errors.name"
         required
       />
-      <div
-        v-if="form.errors.name"
-        v-text="form.errors.name"
-        class="text-red-500 text-xs mt-1"
-      ></div>
-    </div>
-    <div class="mb-6">
-      <label for="email" class="block font-bold text-xs text-gray-500 mb-2">
-        Email
-      </label>
-      <input
+      <FloatLabelInput
         v-model="form.email"
-        class="border rounded-md px-2 py-1 w-full"
+        label="Email"
         type="email"
-        name="email"
         id="email"
+        :error="form.errors.email"
         required
       />
-      <div
-        v-if="form.errors.email"
-        v-text="form.errors.email"
-        class="text-red-500 text-xs mt-1"
-      ></div>
-    </div>
-
-    <div class="mb-6">
-      <label for="password" class="block font-bold text-xs text-gray-500 mb-2">
-        Password
-      </label>
-      <input
+      <PasswordInput
         v-model="form.password"
-        class="border rounded-md px-2 py-1 w-full"
-        type="password"
-        name="password"
+        label="Password"
         id="password"
+        :error="form.errors.password"
         required
       />
-      <div
-        v-if="form.errors.password"
-        v-text="form.errors.password"
-        class="text-red-500 text-xs mt-1"
-      ></div>
-    </div>
-
-    <div class="mb-6">
-      <label
-        for="password_confirmation"
-        class="block font-bold text-xs text-gray-500 mb-2"
-      >
-        Confirm Password
-      </label>
-      <input
+      <PasswordInput
         v-model="form.password_confirmation"
-        class="border rounded-md px-2 py-1 w-full"
-        type="password"
-        name="password_confirmation"
+        label="Repeat Password"
         id="password_confirmation"
         required
       />
     </div>
 
-    <div class="mb-4">
+    <div class="mt-8">
       <button
-        class="bg-blue-400 hover:bg-blue-500 text-white rounded px-4 py-2"
+        class="rounded bg-blue-400 px-4 py-2 text-white hover:bg-blue-500"
         type="submit"
         :disabled="form.processing"
       >
-        Login
+        Register account
       </button>
     </div>
   </form>
 </template>
 
 <script setup>
+import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
+import PasswordInput from "../shared/PasswordInput.vue";
 
 const form = useForm("RegisterForm", {
   name: "",
