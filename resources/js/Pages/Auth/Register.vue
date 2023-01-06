@@ -1,4 +1,5 @@
 <template>
+  <Head title="Register" />
   <div
     class="mx-auto mt-14 flex flex-col rounded-md border border-gray-500 p-4 backdrop-blur-xl dark:border-gray-300 md:rounded-xl"
   >
@@ -12,5 +13,6 @@
 </template>
 
 <script setup>
+import { Head } from "@inertiajs/inertia-vue3";
 import RegisterForm from "@/components/auth/RegisterForm.vue";
 </script>

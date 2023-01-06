@@ -32,21 +32,21 @@
     </div>
 
     <div class="mt-8">
-      <button
-        class="rounded bg-blue-400 px-4 py-2 text-white hover:bg-blue-500"
-        type="submit"
+      <PrimaryButton
+        :class="{ 'opacity-25': form.processing }"
         :disabled="form.processing"
       >
-        Register account
-      </button>
+        Register
+      </PrimaryButton>
     </div>
   </form>
 </template>
 
 <script setup>
-import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
-import PasswordInput from "../shared/PasswordInput.vue";
+import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
+import PasswordInput from "@/components/shared/PasswordInput.vue";
+import PrimaryButton from "@/components/shared/PrimaryButton.vue";
 
 const form = useForm("RegisterForm", {
   name: "",

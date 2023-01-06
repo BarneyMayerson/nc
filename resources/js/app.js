@@ -11,7 +11,11 @@ InertiaProgress.init({
   color: "#FB8136",
 });
 
+const appName =
+  window.document.getElementsByTagName("title")[0]?.innerText || "Laravel";
+
 createInertiaApp({
+  title: (title) => `${title} - ${appName}`,
   resolve: async (name) => {
     const page = (
       await resolvePageComponent(
