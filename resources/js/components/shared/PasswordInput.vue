@@ -63,7 +63,7 @@
         </svg>
       </button>
     </div>
-    <div v-if="error" class="ml-3 mt-1 text-sm font-light text-red-600">
+    <div v-if="error" class="mt-1 ml-3 text-xs text-red-600 dark:text-red-400">
       {{ error }}
     </div>
   </div>
