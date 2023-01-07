@@ -11,7 +11,7 @@
       <input
         :id="id"
         :type="type"
-        class="peer block w-full bg-transparent pr-8"
+        class="peer block w-full bg-transparent pr-8 autofill:text-fill-gray-900 autofill:dark:text-fill-sky-400"
         v-bind="{ ...$attrs, class: null }"
         :value="modelValue"
         @input="$emit('update:modelValue', $event.target.value)"
