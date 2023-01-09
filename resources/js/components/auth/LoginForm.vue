@@ -2,13 +2,6 @@
   <form @submit.prevent="submit">
     <div class="space-y-10">
       <FloatLabelInput
-        v-model="form.name"
-        label="Name"
-        id="name"
-        :error="form.errors.name"
-        required
-      />
-      <FloatLabelInput
         v-model="form.email"
         label="Email"
         type="email"
@@ -23,21 +16,15 @@
         :error="form.errors.password"
         required
       />
-      <PasswordInput
-        v-model="form.password_confirmation"
-        label="Repeat Password"
-        id="password_confirmation"
-        required
-      />
-    </div>
 
-    <div class="mt-8">
-      <PrimaryButton
-        :class="{ 'opacity-25': form.processing }"
-        :disabled="form.processing"
-      >
-        Register
-      </PrimaryButton>
+      <div class="mt-8">
+        <PrimaryButton
+          :class="{ 'opacity-25': form.processing }"
+          :disabled="form.processing"
+        >
+          Login
+        </PrimaryButton>
+      </div>
     </div>
   </form>
 </template>
@@ -48,14 +35,12 @@ import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import PasswordInput from "@/components/shared/PasswordInput.vue";
 import PrimaryButton from "@/components/shared/PrimaryButton.vue";
 
-const form = useForm("RegisterForm", {
-  name: "",
+const form = useForm("LoginForm", {
   email: "",
   password: "",
-  password_confirmation: "",
 });
 
 function submit() {
-  form.post("/register");
+  form.post("/login");
 }
 </script>

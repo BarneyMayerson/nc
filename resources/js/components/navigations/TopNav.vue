@@ -1,15 +1,15 @@
 <template>
   <Disclosure
     as="nav"
-    class="bg-white dark:bg-sky-900 shadow"
+    class="bg-white shadow dark:bg-sky-900"
     v-slot="{ open }"
   >
     <div class="mx-auto px-6 sm:px-8 lg:px-10">
       <div class="flex h-16 justify-between">
         <div class="flex">
           <div class="flex flex-shrink-0 items-center">
-            <Logo class="h-12 w-auto hidden sm:block" />
-            <Logo class="h-8 w-auto block sm:hidden" />
+            <Logo class="hidden h-12 w-auto sm:block" />
+            <Logo class="block h-8 w-auto sm:hidden" />
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
             <NavMenuItem href="#" is-current>Dashboard</NavMenuItem>
@@ -55,7 +55,7 @@
                 leave-to-class="transform opacity-0 scale-95"
               >
                 <MenuItems
-                  class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white dark:bg-sky-700 py-1 ring-1 ring-gray-200 dark:ring-gray-800 focus:outline-none"
+                  class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 ring-gray-200 focus:outline-none dark:bg-sky-700 dark:ring-gray-800"
                 >
                   <MenuItem v-slot="{ active }">
                     <DropdownMenuItem href="#" is-current>
@@ -77,18 +77,18 @@
             </Menu>
           </div>
 
-          <div v-else class="hidden sm:flex space-x-3">
+          <div v-else class="hidden space-x-3 sm:flex">
             <NavMenuItem href="/login">Login</NavMenuItem>
             <NavMenuItem href="/register">Register</NavMenuItem>
           </div>
 
-          <ToggleMode class="self-center ml-3" />
+          <ToggleMode class="ml-3 self-center" />
         </div>
 
         <div class="-mr-2 flex items-center sm:hidden">
           <!-- Mobile menu button -->
           <DisclosureButton
-            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 dark:text-sky-500 hover:bg-gray-100 dark:hover:bg-sky-900 hover:text-gray-500 dark:hover:text-sky-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-700"
+            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-700 dark:text-sky-500 dark:hover:bg-sky-900 dark:hover:text-sky-400"
           >
             <span class="sr-only">Open main menu</span>
             <Bars3Icon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
@@ -100,10 +100,10 @@
 
     <DisclosurePanel class="sm:hidden">
       <div class="space-y-1 pt-2 pb-3">
-        <MobileMenuItem>Dashboard</MobileMenuItem>
-        <MobileMenuItem is-current>Team</MobileMenuItem>
-        <MobileMenuItem>Projects</MobileMenuItem>
-        <MobileMenuItem>Calendar</MobileMenuItem>
+        <MobileMenuItem href="#">Dashboard</MobileMenuItem>
+        <MobileMenuItem href="#" is-current>Team</MobileMenuItem>
+        <MobileMenuItem href="#">Projects</MobileMenuItem>
+        <MobileMenuItem href="#">Calendar</MobileMenuItem>
       </div>
       <div class="border-t border-gray-200 pt-4 pb-3">
         <div v-if="isAuth">
@@ -145,7 +145,7 @@
           <MobileMenuItem href="/register">Register</MobileMenuItem>
         </div>
         <div
-          class="flex items-center justify-between bg-gray-100 dark:bg-sky-900 rounded-md mx-2 px-2 py-3"
+          class="mx-2 flex items-center justify-between rounded-md bg-gray-100 px-2 py-3 dark:bg-sky-900"
         >
           <p class="font-medium text-gray-900 dark:text-sky-400">Appearance</p>
           <ToggleMode />
@@ -156,7 +156,8 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { computed } from "vue";
+import { usePage } from "@inertiajs/inertia-vue3";
 import {
   Disclosure,
   DisclosureButton,
@@ -173,5 +174,6 @@ import MobileMenuItem from "@/components/navigations/MobileMenuItem.vue";
 import DropdownMenuItem from "@/components/navigations/DropdownMenuItem.vue";
 import ToggleMode from "@/components/shared/ToggleMode.vue";
 
-const isAuth = ref(true);
+const user = computed(() => usePage().props.value.auth.user);
+const isAuth = computed(() => Boolean(user.value));
 </script>

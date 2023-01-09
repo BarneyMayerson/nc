@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Registered;
 use Inertia\Inertia;
 
 class RegisterController extends Controller
@@ -28,8 +29,10 @@ class RegisterController extends Controller
             'password' => bcrypt(request('password')),
         ]);
 
+        event(new Registered($user));
+
         auth()->login($user);
 
-        return redirect()->route('home');
+        return redirect(RouteServiceProvider::HOME);
     }
 }

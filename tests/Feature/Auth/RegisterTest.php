@@ -3,6 +3,7 @@
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia as Assert;
@@ -22,6 +23,14 @@ class RegisterTest extends TestCase
     }
 
     /** @test */
+    function register_screen_can_be_rendered()
+    {
+        $response = $this->get('/register');
+
+        $response->assertStatus(200);
+    }
+
+    /** @test */
     function guest_can_register_an_account()
     {
         $this->withoutExceptionHandling();
@@ -38,10 +47,12 @@ class RegisterTest extends TestCase
             'name' => 'newbie',
             'email' => 'newbie@nc.lan',
         ]);
+        $response->assertRedirect(RouteServiceProvider::HOME);
+
     }
 
     /** @test */
-    function it_to_login_the_user_after_registration()
+    function it_do_login_the_user_after_registration()
     {
         $attributes = [
             'name' => 'newbie',
@@ -50,7 +61,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'password'
         ];
 
-        $response = $this->post('/register', $attributes);
+        $this->post('/register', $attributes);
 
         $this->assertAuthenticated();
     }

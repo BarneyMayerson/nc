@@ -22,7 +22,7 @@ describe("PasswordInput.vue", () => {
     });
 
     const input = wrapper.find("#password");
-    const toggleButton = wrapper.find("#toggle-visibility");
+    const toggleButton = wrapper.find("button");
     await toggleButton.trigger("click");
 
     expect(input.attributes("type")).toBe("text");
