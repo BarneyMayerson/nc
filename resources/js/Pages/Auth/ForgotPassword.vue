@@ -1,25 +1,22 @@
 <template>
-  <Head title="Login" />
+  <Head title="Forgot Password" />
   <div
     class="mx-auto mt-14 flex flex-col rounded-md border border-gray-500 p-4 backdrop-blur-xl dark:border-gray-300 md:rounded-xl"
   >
     <h2
       class="my-6 flex justify-center text-2xl font-medium leading-relaxed tracking-wide"
     >
-      Log In
+      Forgot Password?
     </h2>
-    <LoginForm />
+    <p>
+      No problem. Just let us know your email address and we will email you a
+      password reset link that will allow you to choose a new one.
+    </p>
+    <ForgotPasswordForm class="mt-8" />
   </div>
 </template>
 
 <script setup>
-import { provide } from "vue";
 import { Head } from "@inertiajs/inertia-vue3";
-import LoginForm from "@/components/auth/LoginForm.vue";
-
-const props = defineProps({
-  canResetPassword: Boolean,
-});
-
-provide("canResetPassword", props.canResetPassword);
+import ForgotPasswordForm from "@/components/auth/ForgotPasswordForm.vue";
 </script>

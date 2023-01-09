@@ -17,7 +17,14 @@
         required
       />
 
-      <div class="mt-8">
+      <div class="mt-8 flex items-baseline justify-end space-x-6">
+        <Link
+          v-if="canResetPassword"
+          href="/forgot-password"
+          class="rounded text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-8 dark:text-gray-300 dark:hover:text-gray-100 focus:dark:ring-sky-800 dark:focus:ring-offset-gray-800"
+        >
+          Forgot your password?
+        </Link>
         <PrimaryButton
           :class="{ 'opacity-25': form.processing }"
           :disabled="form.processing"
@@ -30,10 +37,13 @@
 </template>
 
 <script setup>
-import { useForm } from "@inertiajs/inertia-vue3";
+import { inject } from "vue";
+import { Link, useForm } from "@inertiajs/inertia-vue3";
 import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import PasswordInput from "@/components/shared/PasswordInput.vue";
 import PrimaryButton from "@/components/shared/PrimaryButton.vue";
+
+const canResetPassword = inject("canResetPassword");
 
 const form = useForm("LoginForm", {
   email: "",
