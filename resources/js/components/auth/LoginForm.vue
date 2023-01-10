@@ -43,7 +43,7 @@ import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import PasswordInput from "@/components/shared/PasswordInput.vue";
 import PrimaryButton from "@/components/shared/PrimaryButton.vue";
 
-const canResetPassword = inject("canResetPassword");
+const canResetPassword = inject("canResetPassword", true);
 
 const form = useForm("LoginForm", {
   email: "",
