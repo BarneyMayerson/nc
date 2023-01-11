@@ -7,6 +7,7 @@
         type="email"
         id="email"
         :error="form.errors.email"
+        autofocus
         required
       />
       <PasswordInput
@@ -53,6 +54,7 @@ const form = useForm({
 });
 
 const submit = () => {
+  console.log("resetting...");
   form.post("/reset-password", {
     onFinish: () => form.reset("password", "password_confirmation"),
   });

@@ -35,6 +35,6 @@ const form = useForm("ForgotPasswordForm", {
 });
 
 function submit() {
-  form.post("/login");
+  form.post("/forgot-password");
 }
 </script>

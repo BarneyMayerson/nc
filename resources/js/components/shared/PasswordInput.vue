@@ -31,6 +31,7 @@
 
       <button
         @click="toggleType"
+        type="button"
         class="absolute right-1 top-0 h-full px-2 focus:scale-110"
       >
         <svg

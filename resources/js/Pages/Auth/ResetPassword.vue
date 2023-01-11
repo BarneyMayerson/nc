@@ -9,11 +9,16 @@
       Reset Password
     </h2>
     <p>Check out email address and choose new password.</p>
-    <ResetPasswordForm class="mt-8" />
+    <ResetPasswordForm class="mt-8" :email="email" :token="token" />
   </div>
 </template>
 
 <script setup>
 import { Head } from "@inertiajs/inertia-vue3";
 import ResetPasswordForm from "@/components/auth/ResetPasswordForm.vue";
+
+defineProps({
+  email: String,
+  token: String,
+});
 </script>

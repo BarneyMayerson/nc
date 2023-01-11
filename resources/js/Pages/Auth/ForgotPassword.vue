@@ -12,6 +12,12 @@
       No problem. Just let us know your email address and we will email you a
       password reset link that will allow you to choose a new one.
     </p>
+    <div
+      v-if="status"
+      class="my-4 text-sm font-medium text-green-600 dark:text-green-400"
+    >
+      {{ status }}
+    </div>
     <ForgotPasswordForm class="mt-8" />
   </div>
 </template>
@@ -19,4 +25,8 @@
 <script setup>
 import { Head } from "@inertiajs/inertia-vue3";
 import ForgotPasswordForm from "@/components/auth/ForgotPasswordForm.vue";
+
+defineProps({
+  status: String,
+});
 </script>
