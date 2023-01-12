@@ -1,8 +1,8 @@
 <template>
-  <Link :href="href">
+  <Link :href="href" :method="method" :as="as">
     <DisclosureButton
-      as="a"
       :href="href"
+      :as="as"
       :class="[
         'block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium',
         isCurrent
@@ -22,5 +22,7 @@ import { DisclosureButton } from "@headlessui/vue";
 defineProps({
   href: { type: String, required: true },
   isCurrent: { type: Boolean, default: false },
+  method: { type: String, default: "get" },
+  as: { type: String, default: "a" },
 });
 </script>

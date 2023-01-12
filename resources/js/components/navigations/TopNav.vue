@@ -58,7 +58,7 @@
                   class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 ring-gray-200 focus:outline-none dark:bg-sky-700 dark:ring-gray-800"
                 >
                   <MenuItem v-slot="{ active }">
-                    <DropdownMenuItem href="#" is-current>
+                    <DropdownMenuItem href="#" :active="active" is-current>
                       Your Profile
                     </DropdownMenuItem>
                   </MenuItem>
@@ -68,7 +68,12 @@
                     </DropdownMenuItem>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
-                    <DropdownMenuItem href="#" :active="active">
+                    <DropdownMenuItem
+                      href="/logout"
+                      method="post"
+                      as="button"
+                      :active="active"
+                    >
                       Logout
                     </DropdownMenuItem>
                   </MenuItem>
@@ -136,7 +141,9 @@
           <div class="mt-3 space-y-1">
             <MobileMenuItem href="#">Your Profile</MobileMenuItem>
             <MobileMenuItem href="#">Settings</MobileMenuItem>
-            <MobileMenuItem href="#">Sign out</MobileMenuItem>
+            <MobileMenuItem href="/logout" method="post" as="button">
+              Logout
+            </MobileMenuItem>
           </div>
         </div>
 
