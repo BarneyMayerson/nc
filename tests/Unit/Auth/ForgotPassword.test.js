@@ -10,4 +10,15 @@ describe("ForgotPassword.vue", () => {
 
     expect(wrapper.findComponent(ForgotPasswordForm).exists()).toBe(true);
   });
+
+  it("display the status", () => {
+    const wrapper = mount(ForgotPassword, {
+      shallow: true,
+      props: { status: "Test Status" },
+    });
+
+    const statusDiv = wrapper.find("#status");
+
+    expect(statusDiv.text()).toBe("Test Status");
+  });
 });

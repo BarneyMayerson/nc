@@ -13,6 +13,7 @@
       password reset link that will allow you to choose a new one.
     </p>
     <div
+      id="status"
       v-if="status"
       class="my-4 text-sm font-medium text-green-600 dark:text-green-400"
     >
