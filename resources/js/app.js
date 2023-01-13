@@ -4,6 +4,7 @@ import { createApp, h } from "vue";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { createInertiaApp } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
+import { modal } from "momentum-modal";
 import AppLayout from "@/components/layouts/AppLayout.vue";
 
 InertiaProgress.init({
@@ -32,6 +33,10 @@ createInertiaApp({
   },
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
+      .use(modal, {
+        resolve: (name) =>
+          resolvePageComponent(name, import.meta.glob("./Pages/**/*.vue")),
+      })
       .use(plugin)
       .mount(el);
   },
