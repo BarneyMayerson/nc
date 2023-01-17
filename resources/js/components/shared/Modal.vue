@@ -3,6 +3,7 @@
     <Dialog
       as="div"
       class="relative z-10 text-gray-900 dark:text-sky-400"
+      initial-focus=""
       @close="close"
     >
       <TransitionChild
@@ -43,6 +44,16 @@
                 <slot name="title" />
               </DialogTitle>
               <slot />
+              <div class="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+                <button
+                  type="button"
+                  class="rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  @click="close"
+                >
+                  <span class="sr-only">Close</span>
+                  <XMarkIcon class="h-6 w-6" aria-hidden="true" />
+                </button>
+              </div>
             </DialogPanel>
           </TransitionChild>
         </div>
@@ -59,6 +70,7 @@ import {
   DialogPanel,
   DialogTitle,
 } from "@headlessui/vue";
+import { XMarkIcon } from "@heroicons/vue/24/outline";
 import { useModal } from "momentum-modal";
 
 const { show, close, redirect } = useModal();
