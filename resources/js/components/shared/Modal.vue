@@ -16,22 +16,22 @@
         leave-to="opacity-0"
       >
         <div
-          class="fixed inset-0 bg-black/10 backdrop-blur-sm backdrop-filter transition-opacity"
+          class="fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity"
         />
       </TransitionChild>
 
-      <div class="fixed inset-0 overflow-y-auto">
+      <div class="du fixed inset-0 overflow-y-auto">
         <div
           class="flex min-h-full items-center justify-center p-4 text-center"
         >
           <TransitionChild
             as="template"
-            enter="duration-300 ease-out"
-            enter-from="opacity-0 scale-95"
-            enter-to="opacity-100 scale-100"
-            leave="duration-200 ease-in"
-            leave-from="opacity-100 scale-100"
-            leave-to="opacity-0 scale-95"
+            enter="duration-300 ease-linear"
+            enter-from="opacity-0 -translate-y-full"
+            enter-to="opacity-100 translate-0"
+            leave="duration-200 ease-linear"
+            leave-from="opacity-100 translate-0"
+            leave-to="opacity-0 -translate-y-full"
           >
             <DialogPanel
               class="dark:black w-full max-w-lg transform overflow-hidden rounded-2xl bg-gray-100 p-6 text-left align-middle shadow-xl shadow-black transition-all dark:bg-sky-900"
