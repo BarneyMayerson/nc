@@ -3,10 +3,6 @@
     <h2>Home</h2>
     <p>Home page goes here UPD</p>
 
-    <div class="mt-6">
-      <PasswordInput id="password" label="Password Input" v-model="password" />
-    </div>
-
     <div class="mt-8 flex items-center space-x-4">
       <FloatLabelInput
         id="first-name"
@@ -46,16 +42,22 @@
 <script setup>
 import { ref, computed } from "vue";
 import { usePage } from "@inertiajs/inertia-vue3";
-import PasswordInput from "@/components/shared/PasswordInput.vue";
 import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import FloatSelect from "@/components/shared/FloatSelect.vue";
 import FloatLabelTextarea from "@/components/shared/FloatLabelTextarea.vue";
 
 const firstName = ref("");
-const password = ref("");
 const country = ref("");
 const dummy = ref("");
 
 const user = computed(() => usePage().props.value.auth.user);
 const isAuth = computed(() => Boolean(user.value));
+</script>
+
+<script>
+import AppLayout from "@/components/layouts/AppLayout.vue";
+
+export default {
+  layout: AppLayout,
+};
 </script>

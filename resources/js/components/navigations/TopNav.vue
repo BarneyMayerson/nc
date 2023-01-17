@@ -83,6 +83,7 @@
           </div>
 
           <div v-else class="hidden space-x-3 sm:flex">
+            <NavMenuItem href="/modal">TryModal</NavMenuItem>
             <NavMenuItem href="/login">Login</NavMenuItem>
             <NavMenuItem href="/register">Register</NavMenuItem>
           </div>

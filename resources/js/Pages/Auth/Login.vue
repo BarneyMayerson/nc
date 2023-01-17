@@ -30,3 +30,11 @@ const props = defineProps({
 
 provide("canResetPassword", props.canResetPassword);
 </script>
+
+<script>
+import AppLayout from "@/components/layouts/AppLayout.vue";
+
+export default {
+  layout: AppLayout,
+};
+</script>

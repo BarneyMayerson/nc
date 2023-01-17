@@ -18,6 +18,16 @@ class AuthenticatedSessionController extends Controller
         ]);
     }
 
+    public function createModal()
+    {
+        return Inertia::modal('Auth/LoginModal')
+            ->with([
+                'canResetPassword' => Route::has('password.request'),
+                'status' => session('status'),
+            ])
+            ->baseRoute('home');
+    }
+
     public function store(LoginRequest $request)
     {
         $request->authenticate();
