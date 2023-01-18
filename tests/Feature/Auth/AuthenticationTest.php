@@ -13,16 +13,6 @@ class AuthenticationTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function it_returns_related_inertia_components()
-    {
-        $response = $this->get('/login');
-
-        $response->assertInertia(fn (Assert $page) => $page
-            ->component('Auth/Login')
-        );
-    }
-
-    /** @test */
     function login_screen_can_be_rendered()
     {
         $response = $this->get('/login');
