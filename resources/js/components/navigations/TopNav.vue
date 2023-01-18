@@ -12,7 +12,7 @@
             <Logo class="block h-8 w-auto sm:hidden" />
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-            <NavMenuItem href="#" is-current>Dashboard</NavMenuItem>
+            <NavMenuItem href="/">Dashboard</NavMenuItem>
             <NavMenuItem href="#">Competitions</NavMenuItem>
             <NavMenuItem href="#">Tourneys</NavMenuItem>
             <NavMenuItem href="#">Game Server</NavMenuItem>
@@ -83,7 +83,6 @@
           </div>
 
           <div v-else class="hidden space-x-3 sm:flex">
-            <NavMenuItem href="/modal">TryModal</NavMenuItem>
             <NavMenuItem href="/login">Login</NavMenuItem>
             <NavMenuItem href="/register">Register</NavMenuItem>
           </div>

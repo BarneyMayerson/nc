@@ -3,7 +3,6 @@
     <Dialog
       as="div"
       class="relative z-10 text-gray-900 dark:text-sky-400"
-      initial-focus=""
       @close="close"
     >
       <TransitionChild
@@ -35,16 +34,16 @@
             leave-to="opacity-0 -translate-y-full"
           >
             <DialogPanel
-              class="dark:black w-full max-w-lg transform overflow-hidden rounded-2xl bg-gray-100 p-6 text-left align-middle shadow-xl shadow-black transition-all dark:bg-sky-900"
+              class="w-full max-w-lg transform overflow-hidden rounded-2xl bg-gray-100 p-6 text-left align-middle shadow-xl shadow-black transition-all dark:bg-sky-900 md:px-16 md:py-32"
             >
               <DialogTitle
                 as="h3"
-                class="text-center text-lg font-medium leading-6 text-gray-900 dark:text-sky-400"
+                class="text-center text-2xl font-medium leading-6 text-gray-900 dark:text-sky-400"
               >
                 <slot name="title" />
               </DialogTitle>
               <slot />
-              <div class="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+              <div class="absolute top-0 right-0 pt-4 pr-4">
                 <button
                   type="button"
                   class="rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
