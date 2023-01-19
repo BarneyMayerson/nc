@@ -2,12 +2,12 @@ import { describe, expect, it } from "vitest";
 import { mount } from "@vue/test-utils";
 import Register from "@/Pages/Auth/Register.vue";
 
-import RegisterForm from "@/components/auth/RegisterForm.vue";
+import Modal from "@/components/shared/Modal.vue";
 
 describe("Register.vue", () => {
-  it("contains RegisterForm component", () => {
+  it("contains Modal component", () => {
     const wrapper = mount(Register, { shallow: true });
 
-    expect(wrapper.findComponent(RegisterForm).exists()).toBe(true);
+    expect(wrapper.findComponent(Modal).exists()).toBe(true);
   });
 });

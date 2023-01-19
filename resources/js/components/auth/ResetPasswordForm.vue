@@ -24,7 +24,7 @@
         required
       />
     </div>
-    <div class="mt-8 flex items-center justify-end">
+    <div class="mt-10 flex items-center justify-end">
       <PrimaryButton
         :class="{ 'opacity-25': form.processing }"
         :disabled="form.processing"
