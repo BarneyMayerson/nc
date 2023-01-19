@@ -12,7 +12,8 @@ class RegisterController extends Controller
 {
     public function create()
     {
-        return Inertia::render('Auth/Register');
+        return Inertia::modal('Auth/Register')
+            ->baseRoute('home');
     }
 
     public function store()

@@ -13,16 +13,6 @@ class RegisterTest extends TestCase
     use RefreshDatabase;
     
     /** @test */
-    function it_returns_related_inertia_component()
-    {
-        $response = $this->get('/register');
-
-        $response->assertInertia(fn (Assert $page) => $page
-            ->component('Auth/Register')
-        );
-    }
-
-    /** @test */
     function register_screen_can_be_rendered()
     {
         $response = $this->get('/register');
