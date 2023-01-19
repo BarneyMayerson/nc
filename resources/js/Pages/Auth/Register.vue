@@ -16,3 +16,11 @@
 import { Head } from "@inertiajs/inertia-vue3";
 import RegisterForm from "@/components/auth/RegisterForm.vue";
 </script>
+
+<script>
+import AppLayout from "@/components/layouts/AppLayout.vue";
+
+export default {
+  layout: AppLayout,
+};
+</script>

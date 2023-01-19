@@ -31,3 +31,11 @@ defineProps({
   status: String,
 });
 </script>
+
+<script>
+import AppLayout from "@/components/layouts/AppLayout.vue";
+
+export default {
+  layout: AppLayout,
+};
+</script>

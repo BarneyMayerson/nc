@@ -12,10 +12,12 @@ class AuthenticatedSessionController extends Controller
 {
     public function create()
     {
-        return Inertia::render('Auth/Login', [
-            'canResetPassword' => Route::has('password.request'),
-            'status' => session('status'),
-        ]);
+        return Inertia::modal('Auth/Login')
+            ->with([
+                'canResetPassword' => Route::has('password.request'),
+                'status' => session('status'),
+            ])
+            ->baseRoute('home');
     }
 
     public function store(LoginRequest $request)

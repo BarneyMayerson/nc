@@ -1,26 +1,26 @@
 <template>
   <Head title="Login" />
-  <div
-    class="mx-auto mt-14 rounded-md border border-gray-500 p-4 backdrop-blur-xl dark:border-gray-300 md:rounded-xl"
-  >
-    <h2
-      class="my-6 flex justify-center text-2xl font-medium leading-relaxed tracking-wide"
-    >
-      Log In
-    </h2>
+
+  <Modal>
+    <template #title>Welcome Back!</template>
+
     <div
       v-if="status"
-      class="my-4 text-sm font-medium text-green-600 dark:text-green-400"
+      class="mt-10 py-4 text-sm font-medium text-green-600 dark:text-green-400"
     >
       {{ status }}
     </div>
-    <LoginForm />
-  </div>
+
+    <div class="mt-20">
+      <LoginForm class="w-full" />
+    </div>
+  </Modal>
 </template>
 
 <script setup>
 import { provide } from "vue";
 import { Head } from "@inertiajs/inertia-vue3";
+import Modal from "@/components/shared/Modal.vue";
 import LoginForm from "@/components/auth/LoginForm.vue";
 
 const props = defineProps({
@@ -29,4 +29,12 @@ const props = defineProps({
 });
 
 provide("canResetPassword", props.canResetPassword);
+</script>
+
+<script>
+import AppLayout from "@/components/layouts/AppLayout.vue";
+
+export default {
+  layout: AppLayout,
+};
 </script>
