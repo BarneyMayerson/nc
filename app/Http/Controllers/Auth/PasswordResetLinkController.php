@@ -12,9 +12,11 @@ class PasswordResetLinkController extends Controller
 {
     public function create()
     {
-        return Inertia::render('Auth/ForgotPassword', [
-            'status' => session('status'),
-        ]);
+        return Inertia::modal('Auth/ForgotPassword')
+            ->with([
+                'status' => session('status'),
+            ])
+            ->baseRoute('login');
     }
 
     public function store(Request $request)
