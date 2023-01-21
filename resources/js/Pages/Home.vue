@@ -51,7 +51,7 @@ import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import FloatSelect from "@/components/shared/FloatSelect.vue";
 import FloatLabelTextarea from "@/components/shared/FloatLabelTextarea.vue";
 
-import { useToast } from "vue-toastification";
+import { POSITION, TYPE, useToast } from "vue-toastification";
 
 const firstName = ref("");
 const country = ref("");
@@ -63,10 +63,15 @@ const isAuth = computed(() => Boolean(user.value));
 const toast = useToast();
 
 const defToast = () => {
-  toast("I'm a toast!");
+  toast("I'm a toast!", {
+    position: POSITION.BOTTOM_RIGHT,
+  });
 };
 const sucToast = () => {
-  toast.success("I'm a success toast notification!");
+  toast("I'm a success toast notification!", {
+    position: POSITION.BOTTOM_RIGHT,
+    type: TYPE.SUCCESS,
+  });
 };
 </script>
 
