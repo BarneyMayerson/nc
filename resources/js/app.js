@@ -4,6 +4,9 @@ import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/inertia-vue3";
 import { InertiaProgress } from "@inertiajs/progress";
 import { modal } from "momentum-modal";
+import Toast from "vue-toastification";
+
+import "vue-toastification/dist/index.css";
 
 InertiaProgress.init({
   showSpinner: true,
@@ -33,6 +36,7 @@ createInertiaApp({
         resolve: (name) =>
           resolvePageComponent(name, import.meta.glob("./Pages/**/*.vue")),
       })
+      .use(Toast)
       .use(plugin)
       .mount(el);
   },
