@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import { Link, useForm } from "@inertiajs/inertia-vue3";
+import { Link, useForm } from "@inertiajs/vue3";
 import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import PasswordInput from "@/components/shared/PasswordInput.vue";
 import PrimaryButton from "@/components/shared/PrimaryButton.vue";

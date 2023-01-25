@@ -164,7 +164,7 @@
 
 <script setup>
 import { computed } from "vue";
-import { usePage } from "@inertiajs/inertia-vue3";
+import { usePage } from "@inertiajs/vue3";
 import {
   Disclosure,
   DisclosureButton,
@@ -181,6 +181,6 @@ import MobileMenuItem from "@/components/navigations/MobileMenuItem.vue";
 import DropdownMenuItem from "@/components/navigations/DropdownMenuItem.vue";
 import ToggleMode from "@/components/shared/ToggleMode.vue";
 
-const user = computed(() => usePage().props.value.auth.user);
+const user = computed(() => usePage().props.auth.user);
 const isAuth = computed(() => Boolean(user.value));
 </script>

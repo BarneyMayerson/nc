@@ -19,7 +19,7 @@
 
 <script setup>
 import { provide } from "vue";
-import { Head } from "@inertiajs/inertia-vue3";
+import { Head } from "@inertiajs/vue3";
 import Modal from "@/components/shared/Modal.vue";
 import LoginForm from "@/components/auth/LoginForm.vue";
 

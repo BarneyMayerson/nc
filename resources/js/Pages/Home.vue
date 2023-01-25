@@ -46,7 +46,7 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import { usePage } from "@inertiajs/inertia-vue3";
+import { usePage } from "@inertiajs/vue3";
 import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import FloatSelect from "@/components/shared/FloatSelect.vue";
 import FloatLabelTextarea from "@/components/shared/FloatLabelTextarea.vue";
@@ -57,7 +57,7 @@ const firstName = ref("");
 const country = ref("");
 const dummy = ref("");
 
-const user = computed(() => usePage().props.value.auth.user);
+const user = computed(() => usePage().props.auth.user);
 const isAuth = computed(() => Boolean(user.value));
 
 const toast = useToast();

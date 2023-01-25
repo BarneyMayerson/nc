@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { Head } from "@inertiajs/inertia-vue3";
+import { Head } from "@inertiajs/vue3";
 import Modal from "@/components/shared/Modal.vue";
 import RegisterForm from "@/components/auth/RegisterForm.vue";
 </script>

@@ -1,17 +1,11 @@
 import "../css/app.css";
 
 import { createApp, h } from "vue";
-import { createInertiaApp } from "@inertiajs/inertia-vue3";
-import { InertiaProgress } from "@inertiajs/progress";
+import { createInertiaApp } from "@inertiajs/vue3";
 import { modal } from "momentum-modal";
 import Toast from "vue-toastification";
 
 import "vue-toastification/dist/index.css";
-
-InertiaProgress.init({
-  showSpinner: true,
-  color: "#FB8136",
-});
 
 function resolvePageComponent(name, pages) {
   for (const path in pages) {
@@ -27,6 +21,10 @@ const appName =
   window.document.getElementsByTagName("title")[0]?.innerText || "Laravel";
 
 createInertiaApp({
+  progress: {
+    showSpinner: true,
+    color: "#FB8136",
+  },
   title: (title) => `${title} - ${appName}`,
   resolve: (name) =>
     resolvePageComponent(name, import.meta.glob("./Pages/**/*.vue")),

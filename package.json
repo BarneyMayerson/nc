@@ -8,6 +8,7 @@
   "devDependencies": {
     "@headlessui/vue": "^1.7.4",
     "@heroicons/vue": "^2.0.13",
+    "@inertiajs/vue3": "^1.0.0",
     "@vitejs/plugin-vue": "^3.2.0",
     "@volar-plugins/vetur": "^0.1.0",
     "@vue/compiler-sfc": "^3.2.45",
@@ -21,6 +22,7 @@
     "jsdom": "^20.0.3",
     "laravel-vite-plugin": "^0.7.1",
     "lodash": "^4.17.19",
+    "momentum-modal": "^0.2.0",
     "postcss": "^8.4.19",
     "postcss-import": "^15.1.0",
     "prettier": "^2.8.1",
