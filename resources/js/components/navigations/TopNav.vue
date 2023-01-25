@@ -6,17 +6,17 @@
   >
     <div class="mx-auto px-6 sm:px-8 lg:px-10">
       <div class="flex h-16 justify-between">
-        <div class="flex">
-          <div class="flex flex-shrink-0 items-center">
+        <div class="flex flex-shrink-0 items-center">
+          <Link href="/">
             <Logo class="hidden h-12 w-auto sm:block" />
             <Logo class="block h-8 w-auto sm:hidden" />
-          </div>
-          <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-            <NavMenuItem href="/">Dashboard</NavMenuItem>
-            <NavMenuItem href="#">Competitions</NavMenuItem>
-            <NavMenuItem href="#">Tourneys</NavMenuItem>
-            <NavMenuItem href="#">Game Server</NavMenuItem>
-          </div>
+          </Link>
+        </div>
+        <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+          <NavMenuItem href="/">Dashboard</NavMenuItem>
+          <NavMenuItem href="#">Competitions</NavMenuItem>
+          <NavMenuItem href="#">Tourneys</NavMenuItem>
+          <NavMenuItem href="#">Game Server</NavMenuItem>
         </div>
 
         <div class="hidden sm:flex">
@@ -164,7 +164,7 @@
 
 <script setup>
 import { computed } from "vue";
-import { usePage } from "@inertiajs/vue3";
+import { Link, usePage } from "@inertiajs/vue3";
 import {
   Disclosure,
   DisclosureButton,
