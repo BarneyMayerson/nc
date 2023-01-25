@@ -25,7 +25,7 @@ createInertiaApp({
     showSpinner: true,
     color: "#FB8136",
   },
-  title: (title) => `${title} - ${appName}`,
+  title: (title) => (title ? `${title} - ${appName}` : appName),
   resolve: (name) =>
     resolvePageComponent(name, import.meta.glob("./Pages/**/*.vue")),
   setup({ el, App, props, plugin }) {
