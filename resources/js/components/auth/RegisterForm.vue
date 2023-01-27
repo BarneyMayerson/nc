@@ -33,7 +33,7 @@
 
     <div class="mt-8 flex items-baseline justify-end space-x-6">
       <Link
-        href="/login"
+        :href="route('login')"
         class="rounded text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-8 dark:text-gray-300 dark:hover:text-gray-100 focus:dark:ring-sky-800 dark:focus:ring-offset-gray-800"
       >
         Already Have an Account?
@@ -62,6 +62,6 @@ const form = useForm("RegisterForm", {
 });
 
 function submit() {
-  form.post("/register");
+  form.post(route("register"));
 }
 </script>

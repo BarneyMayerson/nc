@@ -2,9 +2,11 @@ import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import RegisterForm from "@/components/auth/RegisterForm.vue";
 
-describe("Register.vue", () => {
+describe("RegisterForm.vue", () => {
   it("has name input", () => {
     const wrapper = mount(RegisterForm);
+
+    console.log(wrapper);
 
     expect(wrapper.find("#name").exists()).toBe(true);
   });

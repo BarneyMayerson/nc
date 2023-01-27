@@ -41,11 +41,6 @@
       </div>
       <p v-else>User data is not provided</p>
     </div>
-
-    <div class="mt-8 text-lg">Home Route equals '{{ routeHome }}'</div>
-    <div class="text-lg text-slate-500">Current Url equals '{{ url }}'</div>
-    <div class="text-lg">Login Route equals '{{ routeLogin }}'</div>
-    <div class="text-lg">Register Route equals '{{ routeRegister }}'</div>
   </div>
 </template>
 
@@ -55,6 +50,7 @@ import { usePage } from "@inertiajs/vue3";
 import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import FloatSelect from "@/components/shared/FloatSelect.vue";
 import FloatLabelTextarea from "@/components/shared/FloatLabelTextarea.vue";
+import PrimaryButton from "@/components/shared/PrimaryButton.vue";
 
 import { POSITION, TYPE, useToast } from "vue-toastification";
 
@@ -64,11 +60,6 @@ const dummy = ref("");
 
 const user = computed(() => usePage().props.auth.user);
 const isAuth = computed(() => Boolean(user.value));
-
-const currentRoute = route().current();
-const url = route(currentRoute);
-console.log(currentRoute);
-console.log(Ziggy.url);
 
 const toast = useToast();
 
@@ -83,18 +74,12 @@ const sucToast = () => {
     type: TYPE.SUCCESS,
   });
 };
-
-const routeHome = route("home");
-const routeLogin = route("login");
-const routeRegister = route("register");
 </script>
 
 <script>
 import AppLayout from "@/components/layouts/AppLayout.vue";
-import PrimaryButton from "@/components/shared/PrimaryButton.vue";
 
 export default {
   layout: AppLayout,
-  components: { PrimaryButton },
 };
 </script>
