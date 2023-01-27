@@ -5,6 +5,7 @@ import { createInertiaApp } from "@inertiajs/vue3";
 import { modal } from "momentum-modal";
 import Toast from "vue-toastification";
 import { ZiggyVue } from "../../vendor/tightenco/ziggy/dist/vue.m";
+import { Ziggy } from "./ziggy";
 import "vue-toastification/dist/index.css";
 
 function resolvePageComponent(name, pages) {
