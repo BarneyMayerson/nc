@@ -6,17 +6,17 @@
   >
     <div class="mx-auto px-6 sm:px-8 lg:px-10">
       <div class="flex h-16 justify-between">
-        <div class="flex">
-          <div class="flex flex-shrink-0 items-center">
+        <div class="flex flex-shrink-0 items-center">
+          <Link href="/">
             <Logo class="hidden h-12 w-auto sm:block" />
             <Logo class="block h-8 w-auto sm:hidden" />
-          </div>
-          <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-            <NavMenuItem href="/">Dashboard</NavMenuItem>
-            <NavMenuItem href="#">Competitions</NavMenuItem>
-            <NavMenuItem href="#">Tourneys</NavMenuItem>
-            <NavMenuItem href="#">Game Server</NavMenuItem>
-          </div>
+          </Link>
+        </div>
+        <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+          <NavMenuItem :href="route('home')">Dashboard</NavMenuItem>
+          <NavMenuItem href="#">Competitions</NavMenuItem>
+          <NavMenuItem href="#">Tourneys</NavMenuItem>
+          <NavMenuItem href="#">Game Server</NavMenuItem>
         </div>
 
         <div class="hidden sm:flex">
@@ -69,7 +69,7 @@
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
                     <DropdownMenuItem
-                      href="/logout"
+                      :href="route('logout')"
                       method="post"
                       as="button"
                       :active="active"
@@ -83,8 +83,8 @@
           </div>
 
           <div v-else class="hidden space-x-3 sm:flex">
-            <NavMenuItem href="/login">Login</NavMenuItem>
-            <NavMenuItem href="/register">Register</NavMenuItem>
+            <NavMenuItem :href="route('login')">Login</NavMenuItem>
+            <NavMenuItem :href="route('register')">Register</NavMenuItem>
           </div>
 
           <ToggleMode class="ml-3 self-center" />
@@ -105,7 +105,7 @@
 
     <DisclosurePanel class="sm:hidden">
       <div class="space-y-1 pt-2 pb-3">
-        <MobileMenuItem href="#">Dashboard</MobileMenuItem>
+        <MobileMenuItem :href="route('home')">Dashboard</MobileMenuItem>
         <MobileMenuItem href="#" is-current>Team</MobileMenuItem>
         <MobileMenuItem href="#">Projects</MobileMenuItem>
         <MobileMenuItem href="#">Calendar</MobileMenuItem>
@@ -141,15 +141,15 @@
           <div class="mt-3 space-y-1">
             <MobileMenuItem href="#">Your Profile</MobileMenuItem>
             <MobileMenuItem href="#">Settings</MobileMenuItem>
-            <MobileMenuItem href="/logout" method="post" as="button">
+            <MobileMenuItem :href="route('logout')" method="post" as="button">
               Logout
             </MobileMenuItem>
           </div>
         </div>
 
         <div v-else>
-          <MobileMenuItem href="/login">Login</MobileMenuItem>
-          <MobileMenuItem href="/register">Register</MobileMenuItem>
+          <MobileMenuItem :href="route('login')">Login</MobileMenuItem>
+          <MobileMenuItem :href="route('register')">Register</MobileMenuItem>
         </div>
         <div
           class="mx-2 flex items-center justify-between rounded-md bg-gray-100 px-2 py-3 dark:bg-sky-900"
@@ -164,7 +164,7 @@
 
 <script setup>
 import { computed } from "vue";
-import { usePage } from "@inertiajs/inertia-vue3";
+import { Link, usePage } from "@inertiajs/vue3";
 import {
   Disclosure,
   DisclosureButton,
@@ -181,6 +181,6 @@ import MobileMenuItem from "@/components/navigations/MobileMenuItem.vue";
 import DropdownMenuItem from "@/components/navigations/DropdownMenuItem.vue";
 import ToggleMode from "@/components/shared/ToggleMode.vue";
 
-const user = computed(() => usePage().props.value.auth.user);
+const user = computed(() => usePage().props.auth.user);
 const isAuth = computed(() => Boolean(user.value));
 </script>

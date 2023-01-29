@@ -1,14 +1,12 @@
 import "../css/app.css";
 
 import { createApp, h } from "vue";
-import { createInertiaApp } from "@inertiajs/inertia-vue3";
-import { InertiaProgress } from "@inertiajs/progress";
+import { createInertiaApp } from "@inertiajs/vue3";
 import { modal } from "momentum-modal";
-
-InertiaProgress.init({
-  showSpinner: true,
-  color: "#FB8136",
-});
+import Toast from "vue-toastification";
+import { ZiggyVue } from "../../vendor/tightenco/ziggy/dist/vue.m";
+import { Ziggy } from "./ziggy";
+import "vue-toastification/dist/index.css";
 
 function resolvePageComponent(name, pages) {
   for (const path in pages) {
@@ -24,7 +22,11 @@ const appName =
   window.document.getElementsByTagName("title")[0]?.innerText || "Laravel";
 
 createInertiaApp({
-  title: (title) => `${title} - ${appName}`,
+  progress: {
+    showSpinner: true,
+    color: "#FB8136",
+  },
+  title: (title) => (title ? `${title} - ${appName}` : appName),
   resolve: (name) =>
     resolvePageComponent(name, import.meta.glob("./Pages/**/*.vue")),
   setup({ el, App, props, plugin }) {
@@ -33,6 +35,8 @@ createInertiaApp({
         resolve: (name) =>
           resolvePageComponent(name, import.meta.glob("./Pages/**/*.vue")),
       })
+      .use(Toast)
+      .use(ZiggyVue, Ziggy)
       .use(plugin)
       .mount(el);
   },

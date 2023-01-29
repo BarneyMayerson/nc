@@ -28,6 +28,11 @@
       />
     </div>
 
+    <div class="mt-8 flex space-x-4">
+      <PrimaryButton @click="defToast">Default Toast</PrimaryButton>
+      <PrimaryButton @click="sucToast">Success Toast</PrimaryButton>
+    </div>
+
     <div class="mt-8">
       <h3 class="text-xl font-semibold">Authentication data goes below</h3>
       <div v-if="isAuth">
@@ -41,17 +46,34 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import { usePage } from "@inertiajs/inertia-vue3";
+import { usePage } from "@inertiajs/vue3";
 import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import FloatSelect from "@/components/shared/FloatSelect.vue";
 import FloatLabelTextarea from "@/components/shared/FloatLabelTextarea.vue";
+import PrimaryButton from "@/components/shared/PrimaryButton.vue";
+
+import { POSITION, TYPE, useToast } from "vue-toastification";
 
 const firstName = ref("");
 const country = ref("");
 const dummy = ref("");
 
-const user = computed(() => usePage().props.value.auth.user);
+const user = computed(() => usePage().props.auth.user);
 const isAuth = computed(() => Boolean(user.value));
+
+const toast = useToast();
+
+const defToast = () => {
+  toast("I'm a toast!", {
+    position: POSITION.BOTTOM_RIGHT,
+  });
+};
+const sucToast = () => {
+  toast("I'm a success toast notification!", {
+    position: POSITION.BOTTOM_RIGHT,
+    type: TYPE.SUCCESS,
+  });
+};
 </script>
 
 <script>
