@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /// <reference types="vitest" />
 import { defineConfig } from "vite";
 import laravel from "laravel-vite-plugin";
@@ -23,5 +24,6 @@ export default defineConfig({
   ],
   test: {
     environment: "jsdom",
+    setupFiles: ["./vitestSetupFile.js"],
   },
 });
