@@ -3,6 +3,7 @@
 import { defineConfig } from "vite";
 import laravel from "laravel-vite-plugin";
 import vue from "@vitejs/plugin-vue";
+import { run } from "vite-plugin-run";
 const path = require("path");
 
 export default defineConfig({
@@ -21,6 +22,13 @@ export default defineConfig({
         },
       },
     }),
+    run([
+      {
+        name: "build routes",
+        run: ["php", "artisan", "ziggy:generate"],
+        condition: (file) => file.includes("/routes/"),
+      },
+    ]),
   ],
   test: {
     environment: "jsdom",
