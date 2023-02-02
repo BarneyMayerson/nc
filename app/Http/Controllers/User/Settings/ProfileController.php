@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\User\Settings;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Validation\Rule;
+use Inertia\Inertia;
 
 class ProfileController extends Controller
 {
     public function index() {
-        //
+        $user = auth()->user();
+
+        return Inertia::render('User/Settings/Profile');
     }
 
     public function update() {
@@ -20,6 +22,7 @@ class ProfileController extends Controller
             ],
             'email' => [
                 'required',
+                'email:filter',
                 Rule::unique('users', 'email')->ignore(auth()->id()),
             ]
         ]);
@@ -27,5 +30,7 @@ class ProfileController extends Controller
         $user = auth()->user();
         
         $user->update($attributes);
+
+        return redirect()->route('settings.profile.edit');
     }
 }
