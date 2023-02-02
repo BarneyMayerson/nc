@@ -28,9 +28,8 @@ class ProfileController extends Controller
         ]);
 
         $user = auth()->user();
-        
         $user->update($attributes);
 
-        return redirect()->route('settings.profile.edit');
+        return to_route('settings.profile.edit');
     }
 }
