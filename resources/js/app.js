@@ -6,6 +6,7 @@ import { modal } from "momentum-modal";
 import Toast from "vue-toastification";
 import { ZiggyVue } from "../../vendor/tightenco/ziggy/dist/vue.m";
 import "vue-toastification/dist/index.css";
+import { notifications } from "@/plugins/notifications";
 
 function resolvePageComponent(name, pages) {
   for (const path in pages) {
@@ -36,6 +37,7 @@ createInertiaApp({
       })
       .use(Toast)
       .use(ZiggyVue)
+      .use(notifications)
       .use(plugin)
       .mount(el);
   },

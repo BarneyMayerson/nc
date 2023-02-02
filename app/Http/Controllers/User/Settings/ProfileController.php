@@ -30,6 +30,8 @@ class ProfileController extends Controller
         $user = auth()->user();
         $user->update($attributes);
 
-        return to_route('settings.profile.edit');
+        return to_route('settings.profile.edit')
+            ->with('success', 'Profile has been updated.')
+            ->with('success', '++++++++++++++.');
     }
 }
