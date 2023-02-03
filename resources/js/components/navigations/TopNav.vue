@@ -63,7 +63,10 @@
                     </DropdownMenuItem>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
-                    <DropdownMenuItem href="#" :active="active">
+                    <DropdownMenuItem
+                      :href="route('settings.profile.edit')"
+                      :active="active"
+                    >
                       Settings
                     </DropdownMenuItem>
                   </MenuItem>
@@ -140,7 +143,9 @@
           </div>
           <div class="mt-3 space-y-1">
             <MobileMenuItem href="#">Your Profile</MobileMenuItem>
-            <MobileMenuItem href="#">Settings</MobileMenuItem>
+            <MobileMenuItem :href="route('settings.profile.edit')">
+              Settings
+            </MobileMenuItem>
             <MobileMenuItem :href="route('logout')" method="post" as="button">
               Logout
             </MobileMenuItem>
