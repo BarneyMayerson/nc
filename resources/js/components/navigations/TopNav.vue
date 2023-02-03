@@ -62,6 +62,7 @@
                       href="#"
                       :active="active"
                       @click="close"
+                      preserve-state
                       is-current
                     >
                       Your Profile
@@ -70,6 +71,7 @@
                   <MenuItem v-slot="{ active, close }">
                     <DropdownMenuItem
                       @click="close"
+                      preserve-state
                       :href="route('settings.profile.edit')"
                       :active="active"
                     >
