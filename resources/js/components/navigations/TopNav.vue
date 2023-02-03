@@ -57,13 +57,19 @@
                 <MenuItems
                   class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 ring-gray-200 focus:outline-none dark:bg-sky-700 dark:ring-gray-800"
                 >
-                  <MenuItem v-slot="{ active }">
-                    <DropdownMenuItem href="#" :active="active" is-current>
+                  <MenuItem v-slot="{ active, close }">
+                    <DropdownMenuItem
+                      href="#"
+                      :active="active"
+                      @click="close"
+                      is-current
+                    >
                       Your Profile
                     </DropdownMenuItem>
                   </MenuItem>
-                  <MenuItem v-slot="{ active }">
+                  <MenuItem v-slot="{ active, close }">
                     <DropdownMenuItem
+                      @click="close"
                       :href="route('settings.profile.edit')"
                       :active="active"
                     >
