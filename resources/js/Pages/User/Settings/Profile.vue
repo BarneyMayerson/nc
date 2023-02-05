@@ -1,12 +1,16 @@
 <template>
   Profile Page
   <div class="mt-10">
-    <ProfileForm />
+    <ProfileForm :user="user" />
   </div>
 </template>
 
 <script setup>
 import ProfileForm from "@/components/User/Settings/ProfileForm.vue";
+
+defineProps({
+  user: Object,
+});
 </script>
 
 <script>

@@ -9,9 +9,12 @@ use Inertia\Inertia;
 class ProfileController extends Controller
 {
     public function index() {
-        $user = auth()->user();
+        $user = [
+            'name' => auth()->user()->name,
+            'email' => auth()->user()->email,
+        ];
 
-        return Inertia::render('User/Settings/Profile');
+        return Inertia::render('User/Settings/Profile', compact('user'));
     }
 
     public function update() {

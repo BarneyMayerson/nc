@@ -28,15 +28,18 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useForm, usePage } from "@inertiajs/vue3";
+import { defineProps } from "vue";
+import { useForm } from "@inertiajs/vue3";
 import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import PrimaryButton from "@/components/shared/PrimaryButton.vue";
 
-const user = computed(() => usePage().props.auth.user);
+const props = defineProps({
+  user: Object,
+});
+
 const form = useForm("ProfileForm", {
-  name: user.value.name,
-  email: user.value.email,
+  name: props.user.name,
+  email: props.user.email,
 });
 
 function submitForm() {
