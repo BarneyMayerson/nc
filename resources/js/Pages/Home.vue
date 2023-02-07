@@ -41,6 +41,10 @@
       </div>
       <p v-else>User data is not provided</p>
     </div>
+
+    <div class="mt-8">
+      <Avatar imageUrl="/storage/users/avatars/random-person.jpg" />
+    </div>
   </div>
 </template>
 
@@ -51,6 +55,8 @@ import FloatLabelInput from "@/components/shared/FloatLabelInput.vue";
 import FloatSelect from "@/components/shared/FloatSelect.vue";
 import FloatLabelTextarea from "@/components/shared/FloatLabelTextarea.vue";
 import PrimaryButton from "@/components/shared/PrimaryButton.vue";
+
+import Avatar from "@/components/User/Avatar.vue";
 
 import { POSITION, TYPE, useToast } from "vue-toastification";
 
