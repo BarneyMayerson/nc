@@ -36,14 +36,10 @@
             <Menu as="div" class="relative">
               <div>
                 <MenuButton
-                  class="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  class="flex rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   <span class="sr-only">Open user menu</span>
-                  <img
-                    class="h-8 w-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
+                  <Avatar :image-url="user.avatar" size="10" />
                 </MenuButton>
               </div>
               <transition
@@ -125,11 +121,7 @@
         <div v-if="isAuth">
           <div class="flex items-center px-4">
             <div class="flex-shrink-0">
-              <img
-                class="h-10 w-10 rounded-full"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
+              <Avatar :image-url="user.avatar" />
             </div>
             <div class="ml-3">
               <div
@@ -193,6 +185,7 @@ import NavMenuItem from "@/components/navigations/NavMenuItem.vue";
 import MobileMenuItem from "@/components/navigations/MobileMenuItem.vue";
 import DropdownMenuItem from "@/components/navigations/DropdownMenuItem.vue";
 import ToggleMode from "@/components/shared/ToggleMode.vue";
+import Avatar from "@/components/User/Avatar.vue";
 
 const user = computed(() => usePage().props.auth.user);
 const isAuth = computed(() => Boolean(user.value));
