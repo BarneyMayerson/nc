@@ -34,6 +34,12 @@
     <div v-if="error" class="mt-1 ml-3 text-xs text-red-600 dark:text-red-400">
       {{ error }}
     </div>
+    <div
+      v-else-if="hint"
+      class="mt-1 ml-3 text-xs text-gray-600 dark:text-sky-300"
+    >
+      {{ hint }}
+    </div>
   </div>
 </template>
 
@@ -56,6 +62,9 @@ defineProps({
     default: "",
   },
   error: {
+    type: [String, Boolean],
+  },
+  hint: {
     type: [String, Boolean],
   },
 });
